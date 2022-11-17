@@ -22,5 +22,5 @@ public interface HoaDonIRepon {
 
     boolean delete(String ma);
 
-    boolean update(HoaDonDM a, String ID);
+    boolean update(HoaDonDM a, String ma);
 }

@@ -102,12 +102,48 @@ public class HoaDonRepon implements HoaDonIRepon {
 
     @Override
     public boolean delete(String ma) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "UPDATE HoaDon\n"
+                + "SET          TrangThai = 10"
+                + "WHERE MaHD= ?";
+        int check = 0;
+        try {
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setObject(1, ma);
+            check = ps.executeUpdate();
+            ps.close();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return check > 0;
     }
 
     @Override
-    public boolean update(HoaDonDM a, String ID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean update(HoaDonDM a, String ma) {
+        String sql = "UPDATE HoaDon\n"
+                + "SET          NgayThanhToan =, ThanhTien =, TienDua =, TienThua =, HinhThucThanhToan =, SoTienGiamGia =, TrangThai = 1\n"
+                + "WHERE MaHD= ?";
+        int check = 0;
+        try {
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setObject(1, a.getNgayThanhToan());
+            ps.setObject(2, a.getThanhTien());
+            ps.setObject(3, a.getTienDua());
+            ps.setObject(4, a.getTienThua());
+            ps.setObject(5, a.getHinhThucThanhToan());
+            ps.setObject(6, a.getPhanTramGiamGia());
+            ps.setObject(7, ma);
+            check = ps.executeUpdate();
+            ps.close();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return check > 0;
     }
 
 }

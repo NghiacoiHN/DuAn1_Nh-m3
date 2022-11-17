@@ -53,8 +53,10 @@ public class HoaDonVM {
     public String loadTrangThai() {
         if (this.trangThai == 1) {
             return "Đã thanh toán";
-        } else if (true) {
+        } else if (this.trangThai == 2) {
             return "Chưa thanh toán";
+        } else if (this.trangThai == 10) {
+            return "Bị hủy";
         } else {
             return null;
         }
