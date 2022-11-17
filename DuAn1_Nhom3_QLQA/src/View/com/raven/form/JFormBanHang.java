@@ -997,10 +997,13 @@ public class JFormBanHang extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (txtTienDua.getText().trim().isEmpty()) {
             lbThanhTien.setText(lbTongTien.getText());
+        } else if (Double.parseDouble(txtTienDua.getText()) < Double.parseDouble(lbThanhTien.getText())) {
+            lbTienThua.setText("");
         } else {
             double thanhDu = Double.parseDouble(txtTienDua.getText()) - Double.parseDouble(lbThanhTien.getText());
             lbTienThua.setText(String.valueOf(thanhDu));
         }
+
     }//GEN-LAST:event_txtTienDuaKeyTyped
 
 
