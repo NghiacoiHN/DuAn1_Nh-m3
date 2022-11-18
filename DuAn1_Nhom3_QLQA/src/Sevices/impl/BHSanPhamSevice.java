@@ -4,23 +4,23 @@
  */
 package Sevices.impl;
 
-import DomainModels.SanPhamDM;
-import Reponsitories.SanPhamIRepon;
-import Reponsitories.impl.SanPhamRepon;
-import Sevices.SanPhamISevice;
-import ViewModels.SanPhamVM;
+import DomainModels.BHSanPhamDM;
+import Reponsitories.impl.BHSanPhamRepon;
+import ViewModels.BHSanPhamVM;
 import java.util.List;
+import Reponsitories.BHSanPhamIRepon;
+import Sevices.BHSanPhamISevice;
 
 /**
  *
  * @author TRONG NGHIA
  */
-public class SanPhamSevice implements SanPhamISevice {
+public class BHSanPhamSevice implements BHSanPhamISevice {
 
-    SanPhamIRepon spRepon = new SanPhamRepon();
+    BHSanPhamIRepon spRepon = new BHSanPhamRepon();
 
     @Override
-    public List<SanPhamVM> findAll() {
+    public List<BHSanPhamVM> findAll() {
         try {
             return spRepon.findAll();
         } catch (Exception e) {
@@ -30,12 +30,12 @@ public class SanPhamSevice implements SanPhamISevice {
     }
 
     @Override
-    public SanPhamVM getOne(Integer trangThai) {
+    public BHSanPhamVM getOne(Integer trangThai) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public boolean add(SanPhamDM a) {
+    public boolean add(BHSanPhamDM a) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -45,7 +45,7 @@ public class SanPhamSevice implements SanPhamISevice {
     }
 
     @Override
-    public boolean update(SanPhamDM a, String ID) {
+    public boolean update(BHSanPhamDM a, String ID) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

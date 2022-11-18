@@ -5,16 +5,13 @@
  */
 package View.com.raven.form;
 
-import DomainModels.HoaDonDM;
-import Sevices.GioHangISevice;
-import Sevices.HoaDonISevice;
-import Sevices.SanPhamISevice;
-import Sevices.impl.GioHangSevice;
-import Sevices.impl.HoaDonSevice;
-import Sevices.impl.SanPhamSevice;
-import ViewModels.GioHangVM;
-import ViewModels.HoaDonVM;
-import ViewModels.SanPhamVM;
+import DomainModels.BHHoaDonDM;
+import Sevices.impl.BHGioHangSevice;
+import Sevices.impl.BHHoaDonSevice;
+import Sevices.impl.BHSanPhamSevice;
+import ViewModels.BHGioHangVM;
+import ViewModels.BhHoaDonVM;
+import ViewModels.BHSanPhamVM;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,6 +19,9 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Sevices.BHGioHangISevice;
+import Sevices.BHHoaDonISevice;
+import Sevices.BHSanPhamISevice;
 
 /**
  *
@@ -41,25 +41,25 @@ public class JFormBanHang extends javax.swing.JPanel {
         loadCB();
 //        loadTongTien();
     }
-    HoaDonISevice hdsv = new HoaDonSevice();
-    SanPhamISevice spsv = new SanPhamSevice();
-    GioHangISevice ghsv = new GioHangSevice();
+    BHHoaDonISevice hdsv = new BHHoaDonSevice();
+    BHSanPhamISevice spsv = new BHSanPhamSevice();
+    BHGioHangISevice ghsv = new BHGioHangSevice();
 
     private void loadTBDSHD() {
-        List<HoaDonVM> listHD = hdsv.findAll();
+        List<BhHoaDonVM> listHD = hdsv.findAll();
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[]{"Mã hóa đơn", "Ngày tạo", "Tên khách hàng", "Trạng thái"});
-        for (HoaDonVM x : listHD) {
+        for (BhHoaDonVM x : listHD) {
             model.addRow(new Object[]{x.getMaHD(), x.getNgayTao(), x.getTenKH(), x.loadTrangThai()});
         }
         tblHoaDon.setModel(model);
     }
 
     private void loadTBDSGH() {
-        List<GioHangVM> listGH = ghsv.findAll();
+        List<BHGioHangVM> listGH = ghsv.findAll();
         DefaultTableModel model = new DefaultTableModel();
-        model.setColumnIdentifiers(new String[]{"Mã hóa đơn", "Tên sản phẩm", "Tên loại", "Chất liệu", "Màu sắc", "Size", "Số lượng", "Đơn giá"});
-        for (GioHangVM x : listGH) {
+        model.setColumnIdentifiers(new String[]{"Mã hóa đơn", "Tên sản phẩm", "Tên loại", "Chất liệu", "Màu sắc", "Size","Xuất xứ", "Số lượng", "Đơn giá"});
+        for (BHGioHangVM x : listGH) {
             model.addRow(new Object[]{x.getMaHD(), x.getTenSP(), x.getTenLoaiSP(),
                 x.getTenCL(), x.getTenMS(), x.getTenSize(), x.getSoLuong(), x.getDonGia()});
         }
@@ -67,13 +67,13 @@ public class JFormBanHang extends javax.swing.JPanel {
     }
 
     private void loadTBDSSP() {
-        List<SanPhamVM> listSP = spsv.findAll();
+        List<BHSanPhamVM> listSP = spsv.findAll();
         DefaultTableModel model = new DefaultTableModel();
         model.setRowCount(0);
-        model.setColumnIdentifiers(new String[]{"Mã sản phâm", "Tên sản phẩm", "Tên loại", "Chất liệu", "Màu sắc", "Size", "Giá bán", "Số lượng"});
-        for (SanPhamVM x : listSP) {
+        model.setColumnIdentifiers(new String[]{"Mã sản phâm", "Tên sản phẩm", "Tên loại", "Chất liệu", "Màu sắc", "Size","Xuất xứ", "Giá bán", "Số lượng tồn"});
+        for (BHSanPhamVM x : listSP) {
             model.addRow(new Object[]{x.getMaCTSP(), x.getTenSP(), x.getTenLoaiSP(), x.getTenCL(), x.getTenMS(), x.getTenSize(),
-                x.getGiaBan(), x.getSoLuongTon()});
+                x.getTenXuatXu(),x.getGiaBan(), x.getSoLuongTon()});
         }
         tblDSSP.setModel(model);
     }
@@ -785,14 +785,14 @@ public class JFormBanHang extends javax.swing.JPanel {
         cbHinhThuc.setModel(new DefaultComboBoxModel(thanhToan));
     }
 
-    private HoaDonDM getInputTT() {
-        HoaDonDM a = new HoaDonDM();
+    private BHHoaDonDM getInputTT() {
+        BHHoaDonDM a = new BHHoaDonDM();
         a.setNgayThanhToan(lbngayHienTai.getText());
         a.setThanhTien(BigDecimal.valueOf(Double.parseDouble(lbThanhTien.getText())));
         a.setTienDua(BigDecimal.valueOf(Double.parseDouble(txtTienDua.getText())));
         a.setTienThua(BigDecimal.valueOf(Double.parseDouble(lbTienThua.getText())));
         a.setHinhThucThanhToan((String) cbHinhThuc.getModel().getSelectedItem());
-        a.setNgayThanhToan(txtSoTienGiam.getText());
+        a.setSoTienGiam(BigDecimal.valueOf(Double.parseDouble(txtSoTienGiam.getText())));
         return a;
     }
 
@@ -805,6 +805,8 @@ public class JFormBanHang extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Mời Nhập Thông Tin Thanh Toán!!!");
         } else if (Double.parseDouble(txtSoTienGiam.getText()) < 0 || Double.parseDouble(txtTienDua.getText()) < 0) {
             JOptionPane.showMessageDialog(this, "Mời Nhập Thông Tin Thanh Toán Lớn Hơn 0!!!");
+        } else if (Double.parseDouble(txtTienDua.getText()) < Double.parseDouble(lbThanhTien.getText())) {
+            JOptionPane.showMessageDialog(this, "Tiền Đưa Lớn Hơn Số Tiền Cần Trả!!!");
         } else {
             String layGiaTri = (String) tblHoaDon.getValueAt(chonCot, 0);
             hdsv.update(getInputTT(), layGiaTri);
@@ -816,10 +818,12 @@ public class JFormBanHang extends javax.swing.JPanel {
     //Load số tiền của Jlable
     private void loadTongTien() {
         double tongTien = 0;
+        BigDecimal bgTongTien = new BigDecimal(Double.toString(tongTien));
         for (int i = 0; i < tblGioHang.getRowCount(); i++) {
-            tongTien += Double.parseDouble(tblGioHang.getValueAt(i, 7).toString());
+//            tongTien += Double.parseDouble(tblGioHang.getValueAt(i, 7).toString());
+            bgTongTien = bgTongTien.add(BigDecimal.valueOf(Double.parseDouble(tblGioHang.getValueAt(i, 7).toString())));
         }
-        lbTongTien.setText(String.valueOf(tongTien));
+        lbTongTien.setText(String.valueOf(bgTongTien));
 
     }
 
@@ -827,8 +831,11 @@ public class JFormBanHang extends javax.swing.JPanel {
         if (txtSoTienGiam.getText().trim().isEmpty()) {
             lbThanhTien.setText(lbTongTien.getText());
         } else {
-            double thanhTien = Double.parseDouble(lbTongTien.getText()) - Double.parseDouble(txtSoTienGiam.getText());
-            lbThanhTien.setText(String.valueOf(thanhTien));
+            double tienCanTra = 0;
+            BigDecimal bgtienCanTra = new BigDecimal(Double.toString(tienCanTra));
+            bgtienCanTra = BigDecimal.valueOf(Double.parseDouble(lbTongTien.getText()))
+                    .subtract(BigDecimal.valueOf(Double.parseDouble(txtSoTienGiam.getText())));
+            lbThanhTien.setText(String.valueOf(bgtienCanTra));
         }
 
     }
@@ -837,10 +844,10 @@ public class JFormBanHang extends javax.swing.JPanel {
         // TODO add your handling code here:
         int chonCot = tblHoaDon.getSelectedRow();
         String layMa = (String) tblHoaDon.getValueAt(chonCot, 0);
-        List<GioHangVM> listGH = ghsv.getOne(layMa);
+        List<BHGioHangVM> listGH = ghsv.getOne(layMa);
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[]{"Mã hóa đơn", "Tên sản phẩm", "Tên loại", "Chất liệu", "Màu sắc", "Size", "Số lượng", "Đơn giá"});
-        for (GioHangVM x : listGH) {
+        for (BHGioHangVM x : listGH) {
             model.addRow(new Object[]{x.getMaHD(), x.getTenSP(), x.getTenLoaiSP(),
                 x.getTenCL(), x.getTenMS(), x.getTenSize(), x.getSoLuong(), x.getDonGia()});
         }
@@ -851,8 +858,8 @@ public class JFormBanHang extends javax.swing.JPanel {
 
 //        ghsv.getOne(layMa);
     }//GEN-LAST:event_tblHoaDonMouseClicked
-    private HoaDonDM getIputHD() {
-        HoaDonDM hoaDon1 = new HoaDonDM();
+    private BHHoaDonDM getIputHD() {
+        BHHoaDonDM hoaDon1 = new BHHoaDonDM();
         hoaDon1.setNgayTao(lbngayHienTai.getText());
         hoaDon1.setTenKH(txtTenKH.getText());
         hoaDon1.setSDTKH(txtSDTKH.getText());
@@ -883,10 +890,10 @@ public class JFormBanHang extends javax.swing.JPanel {
 
     private void rdThanhToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rdThanhToanMouseClicked
         // TODO add your handling code here:
-        List<HoaDonVM> listHD = hdsv.findByTT(1);
+        List<BhHoaDonVM> listHD = hdsv.findByTT(1);
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[]{"Mã hóa đơn", "Ngày tạo", "Tên khách hàng", "Trạng thái"});
-        for (HoaDonVM x : listHD) {
+        for (BhHoaDonVM x : listHD) {
             model.addRow(new Object[]{x.getMaHD(), x.getNgayTao(), x.getTenKH(), x.loadTrangThai()});
         }
         tblHoaDon.setModel(model);
@@ -910,7 +917,7 @@ public class JFormBanHang extends javax.swing.JPanel {
         String soLuong = JOptionPane.showInputDialog(this, "Mời nhập số lượng!!!");
         int data = Integer.parseInt(soLuong);
         int chonCot = tblDSSP.getSelectedRow();
-        int layGiaTri = (int) tblDSSP.getValueAt(chonCot, 7);
+        int layGiaTri = (int) tblDSSP.getValueAt(chonCot, 8);
         if (data > layGiaTri) {
             JOptionPane.showMessageDialog(this, "Nhập số lượng muốn mua nhỏ hơn số lượng tồn!!!");
         } else if (soLuong == null || data <= 0) {
@@ -939,18 +946,18 @@ public class JFormBanHang extends javax.swing.JPanel {
 
     private void rdChuaThanhToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rdChuaThanhToanMouseClicked
         // TODO add your handling code here:
-        List<HoaDonVM> listHD = hdsv.findByTT(2);
+        List<BhHoaDonVM> listHD = hdsv.findByTT(2);
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[]{"Mã hóa đơn", "Ngày tạo", "Tên khách hàng", "Trạng thái"});
-        for (HoaDonVM x : listHD) {
+        for (BhHoaDonVM x : listHD) {
             model.addRow(new Object[]{x.getMaHD(), x.getNgayTao(), x.getTenKH(), x.loadTrangThai()});
         }
         tblHoaDon.setModel(model);
     }//GEN-LAST:event_rdChuaThanhToanMouseClicked
-    private HoaDonDM getTrangThaiHD() {
+    private BHHoaDonDM getTrangThaiHD() {
         int chonCot = tblHoaDon.getSelectedRow();
         int layGiaTri = (int) tblHoaDon.getValueAt(chonCot, 3);
-        HoaDonDM hoaDon1 = new HoaDonDM();
+        BHHoaDonDM hoaDon1 = new BHHoaDonDM();
         hoaDon1.setTrangThai(layGiaTri);
         return hoaDon1;
     }
@@ -987,8 +994,11 @@ public class JFormBanHang extends javax.swing.JPanel {
         } else if (Double.parseDouble(txtSoTienGiam.getText()) >= Double.parseDouble(lbTongTien.getText())) {
             JOptionPane.showMessageDialog(this, "Số Tiền Giảm Không Lớn Hơn Tổng Tiền");
         } else {
-            double thanhTien = Double.parseDouble(lbTongTien.getText()) - Double.parseDouble(txtSoTienGiam.getText());
-            lbThanhTien.setText(String.valueOf(thanhTien));
+            double thanhTien = 0;
+            BigDecimal bgThanhTien = new BigDecimal(Double.toString(thanhTien));
+            bgThanhTien = BigDecimal.valueOf(Double.parseDouble(lbTongTien.getText()))
+                    .subtract(BigDecimal.valueOf(Double.parseDouble(txtSoTienGiam.getText())));
+            lbThanhTien.setText(String.valueOf(bgThanhTien));
         }
 
     }//GEN-LAST:event_txtSoTienGiamKeyTyped
@@ -998,10 +1008,16 @@ public class JFormBanHang extends javax.swing.JPanel {
         if (txtTienDua.getText().trim().isEmpty()) {
             lbThanhTien.setText(lbTongTien.getText());
         } else if (Double.parseDouble(txtTienDua.getText()) < Double.parseDouble(lbThanhTien.getText())) {
-            lbTienThua.setText("");
+            lbTienThua.setText("0");
         } else {
-            double thanhDu = Double.parseDouble(txtTienDua.getText()) - Double.parseDouble(lbThanhTien.getText());
-            lbTienThua.setText(String.valueOf(thanhDu));
+            txtSoTienGiamKeyTyped(evt);
+            double thanhDu = 0;
+            BigDecimal bgthanhDu = new BigDecimal(Double.toString(thanhDu));
+            bgthanhDu = BigDecimal.valueOf(Double.parseDouble(txtTienDua.getText()))
+                    .subtract(BigDecimal.valueOf(Double.parseDouble(lbThanhTien.getText())));
+            lbTienThua.setText(String.valueOf(bgthanhDu));
+//            double thanhDu = Double.parseDouble(txtTienDua.getText()) - Double.parseDouble(lbThanhTien.getText());
+//            lbTienThua.setText(String.valueOf(thanhDu));
         }
 
     }//GEN-LAST:event_txtTienDuaKeyTyped

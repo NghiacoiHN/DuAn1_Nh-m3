@@ -8,14 +8,14 @@ package ViewModels;
  *
  * @author TRONG NGHIA
  */
-public class HoaDonVM {
+public class BhHoaDonVM {
 
     String MaHD;
     String tenKH;
     String ngayTao;
     Integer trangThai;
 
-    public HoaDonVM() {
+    public BhHoaDonVM() {
     }
 
     public String getMaHD() {

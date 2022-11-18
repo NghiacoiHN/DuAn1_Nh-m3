@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  *
  * @author TRONG NGHIA
  */
-public class HoaDonDM {
+public class BHHoaDonDM {
     String IDHD;
     String IDKH;
     String IDNV;
@@ -18,7 +18,7 @@ public class HoaDonDM {
     String MaHD;
     String ngayTao;
     String ngayThanhToan;
-    Integer phanTramGiamGia;
+    BigDecimal soTienGiam;
     BigDecimal thanhTien;
     BigDecimal tienDua;
     BigDecimal tienThua;
@@ -30,7 +30,15 @@ public class HoaDonDM {
     String diaChi;
     Integer trangThai;
 
-    public HoaDonDM() {
+    public BigDecimal getSoTienGiam() {
+        return soTienGiam;
+    }
+
+    public void setSoTienGiam(BigDecimal soTienGiam) {
+        this.soTienGiam = soTienGiam;
+    }
+
+    public BHHoaDonDM() {
     }
 
     public String getIDHD() {
@@ -87,14 +95,6 @@ public class HoaDonDM {
 
     public void setNgayThanhToan(String ngayThanhToan) {
         this.ngayThanhToan = ngayThanhToan;
-    }
-
-    public Integer getPhanTramGiamGia() {
-        return phanTramGiamGia;
-    }
-
-    public void setPhanTramGiamGia(Integer phanTramGiamGia) {
-        this.phanTramGiamGia = phanTramGiamGia;
     }
 
     public BigDecimal getThanhTien() {

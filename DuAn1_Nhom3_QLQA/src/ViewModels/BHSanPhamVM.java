@@ -10,36 +10,49 @@ import java.math.BigDecimal;
  *
  * @author TRONG NGHIA
  */
-public class GioHangVM {
-    String maHD;
+public class BHSanPhamVM {
+
+    String maCTSP;
     String tenSP;
     String tenLoaiSP;
     String tenCL;
     String tenMS;
     String tenSize;
-    Integer soLuong;
-    BigDecimal donGia;
+    String tenXuatXu;
+    Integer soLuongTon;
+    BigDecimal giaBan;
+    Integer trangThai;
 
-    public GioHangVM() {
+    public BHSanPhamVM() {
     }
 
-    public GioHangVM(String maHD, String tenSP, String tenLoaiSP, String tenCL, String tenMS, String tenSize, Integer soLuong, BigDecimal donGia) {
-        this.maHD = maHD;
+    public BHSanPhamVM(String maCTSP, String tenSP, String tenLoaiSP, String tenCL, String tenMS, String tenSize, String tenXuatXu, Integer soLuongTon, BigDecimal giaBan, Integer trangThai) {
+        this.maCTSP = maCTSP;
         this.tenSP = tenSP;
         this.tenLoaiSP = tenLoaiSP;
         this.tenCL = tenCL;
         this.tenMS = tenMS;
         this.tenSize = tenSize;
-        this.soLuong = soLuong;
-        this.donGia = donGia;
+        this.tenXuatXu = tenXuatXu;
+        this.soLuongTon = soLuongTon;
+        this.giaBan = giaBan;
+        this.trangThai = trangThai;
     }
 
-    public String getMaHD() {
-        return maHD;
+    public String getTenXuatXu() {
+        return tenXuatXu;
     }
 
-    public void setMaHD(String maHD) {
-        this.maHD = maHD;
+    public void setTenXuatXu(String tenXuatXu) {
+        this.tenXuatXu = tenXuatXu;
+    }
+
+    public String getMaCTSP() {
+        return maCTSP;
+    }
+
+    public void setMaCTSP(String maCTSP) {
+        this.maCTSP = maCTSP;
     }
 
     public String getTenSP() {
@@ -82,21 +95,28 @@ public class GioHangVM {
         this.tenSize = tenSize;
     }
 
-    public Integer getSoLuong() {
-        return soLuong;
+    public Integer getSoLuongTon() {
+        return soLuongTon;
     }
 
-    public void setSoLuong(Integer soLuong) {
-        this.soLuong = soLuong;
+    public void setSoLuongTon(Integer soLuongTon) {
+        this.soLuongTon = soLuongTon;
     }
 
-    public BigDecimal getDonGia() {
-        return donGia;
+    public BigDecimal getGiaBan() {
+        return giaBan;
     }
 
-    public void setDonGia(BigDecimal donGia) {
-        this.donGia = donGia;
+    public void setGiaBan(BigDecimal giaBan) {
+        this.giaBan = giaBan;
     }
-    
-    
+
+    public Integer getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(Integer trangThai) {
+        this.trangThai = trangThai;
+    }
+
 }

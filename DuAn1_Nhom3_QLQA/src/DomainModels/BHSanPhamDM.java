@@ -10,34 +10,44 @@ import java.math.BigDecimal;
  *
  * @author TRONG NGHIA
  */
-public class SanPhamDM {
+public class BHSanPhamDM {
     String IDCTSP;
     String maCTSP;
     String IDSP;
     String IDCL;
     String IDMS;
     String IDSize;
+    String IDXX;
     String moTa;
     Integer soLuongTon;
     BigDecimal giaNhap;
     BigDecimal giaBan;
     Integer trangThai;
 
-    public SanPhamDM() {
+    public BHSanPhamDM() {
     }
 
-    public SanPhamDM(String IDCTSP, String maCTSP, String IDSP, String IDCL, String IDMS, String IDSize, String moTa, Integer soLuongTon, BigDecimal giaNhap, BigDecimal giaBan, Integer trangThai) {
+    public BHSanPhamDM(String IDCTSP, String maCTSP, String IDSP, String IDCL, String IDMS, String IDSize, String IDXX, String moTa, Integer soLuongTon, BigDecimal giaNhap, BigDecimal giaBan, Integer trangThai) {
         this.IDCTSP = IDCTSP;
         this.maCTSP = maCTSP;
         this.IDSP = IDSP;
         this.IDCL = IDCL;
         this.IDMS = IDMS;
         this.IDSize = IDSize;
+        this.IDXX = IDXX;
         this.moTa = moTa;
         this.soLuongTon = soLuongTon;
         this.giaNhap = giaNhap;
         this.giaBan = giaBan;
         this.trangThai = trangThai;
+    }
+
+    public String getIDXX() {
+        return IDXX;
+    }
+
+    public void setIDXX(String IDXX) {
+        this.IDXX = IDXX;
     }
 
     public String getIDCTSP() {

@@ -5,22 +5,22 @@
 package Sevices;
 
 import Reponsitories.*;
-import DomainModels.SanPhamDM;
-import ViewModels.SanPhamVM;
+import DomainModels.BHSanPhamDM;
+import ViewModels.BHSanPhamVM;
 import java.util.List;
 
 /**
  *
  * @author TRONG NGHIA
  */
-public interface SanPhamISevice {
-    List<SanPhamVM> findAll();
+public interface BHSanPhamISevice {
+    List<BHSanPhamVM> findAll();
 
-    SanPhamVM getOne(Integer trangThai);
+    BHSanPhamVM getOne(Integer trangThai);
 
-    boolean add(SanPhamDM a);
+    boolean add(BHSanPhamDM a);
 
     boolean delete(String ma);
 
-    boolean update(SanPhamDM a, String ID);
+    boolean update(BHSanPhamDM a, String ID);
 }

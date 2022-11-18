@@ -4,26 +4,26 @@
  */
 package Reponsitories.impl;
 
-import DomainModels.HoaDonDM;
-import Reponsitories.HoaDonIRepon;
+import DomainModels.BHHoaDonDM;
 import Utilities.DBConnection;
-import ViewModels.HoaDonVM;
+import ViewModels.BhHoaDonVM;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import Reponsitories.BHHoaDonIRepon;
 
 /**
  *
  * @author TRONG NGHIA
  */
-public class HoaDonRepon implements HoaDonIRepon {
+public class BHHoaDonRepon implements BHHoaDonIRepon {
 
     @Override
-    public List<HoaDonVM> findAll() {
-        List<HoaDonVM> products = new ArrayList<>();
+    public List<BhHoaDonVM> findAll() {
+        List<BhHoaDonVM> products = new ArrayList<>();
         String sql = "SELECT MaHD, NgayTao, TenKH, TrangThai\n"
                 + "FROM     HoaDon";
         try {
@@ -31,7 +31,7 @@ public class HoaDonRepon implements HoaDonIRepon {
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                HoaDonVM hoaDon1 = new HoaDonVM();
+                BhHoaDonVM hoaDon1 = new BhHoaDonVM();
                 hoaDon1.setMaHD(rs.getString("MaHD"));
                 hoaDon1.setNgayTao(rs.getString("NgayTao"));
                 hoaDon1.setTenKH(rs.getString("TenKH"));
@@ -49,8 +49,8 @@ public class HoaDonRepon implements HoaDonIRepon {
     }
 
     @Override
-    public List<HoaDonVM> findByTT(Integer trangThai) {
-        List<HoaDonVM> products = new ArrayList<>();
+    public List<BhHoaDonVM> findByTT(Integer trangThai) {
+        List<BhHoaDonVM> products = new ArrayList<>();
         String sql = "SELECT MaHD, NgayTao, TenKH, TrangThai\n"
                 + "FROM     HoaDon\n"
                 + "WHERE TrangThai = ?";
@@ -60,7 +60,7 @@ public class HoaDonRepon implements HoaDonIRepon {
             ps.setObject(1, trangThai);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                HoaDonVM hoaDon1 = new HoaDonVM();
+                BhHoaDonVM hoaDon1 = new BhHoaDonVM();
                 hoaDon1.setMaHD(rs.getString("MaHD"));
                 hoaDon1.setNgayTao(rs.getString("NgayTao"));
                 hoaDon1.setTenKH(rs.getString("TenKH"));
@@ -78,7 +78,7 @@ public class HoaDonRepon implements HoaDonIRepon {
     }
 
     @Override
-    public boolean add(HoaDonDM a) {
+    public boolean add(BHHoaDonDM a) {
         String sql = "INSERT INTO HoaDon\n"
                 + "                  (NgayTao, TenKH, SDTKH, TrangThai)\n"
                 + "VALUES (?,?,?,2)";
@@ -121,9 +121,9 @@ public class HoaDonRepon implements HoaDonIRepon {
     }
 
     @Override
-    public boolean update(HoaDonDM a, String ma) {
+    public boolean update(BHHoaDonDM a, String ma) {
         String sql = "UPDATE HoaDon\n"
-                + "SET          NgayThanhToan =, ThanhTien =, TienDua =, TienThua =, HinhThucThanhToan =, SoTienGiamGia =, TrangThai = 1\n"
+                + "SET          NgayThanhToan =?, ThanhTien =?, TienDua =?, TienThua =?, HinhThucThanhToan =N'?', SoTienGiamGia =?, TrangThai = 1\n"
                 + "WHERE MaHD= ?";
         int check = 0;
         try {
@@ -134,7 +134,7 @@ public class HoaDonRepon implements HoaDonIRepon {
             ps.setObject(3, a.getTienDua());
             ps.setObject(4, a.getTienThua());
             ps.setObject(5, a.getHinhThucThanhToan());
-            ps.setObject(6, a.getPhanTramGiamGia());
+            ps.setObject(6, a.getSoTienGiam());
             ps.setObject(7, ma);
             check = ps.executeUpdate();
             ps.close();

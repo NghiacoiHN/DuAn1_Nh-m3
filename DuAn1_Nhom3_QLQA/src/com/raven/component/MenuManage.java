@@ -35,6 +35,7 @@ public class MenuManage extends javax.swing.JPanel {
         listMenu1.addItem(new Model_Menu("4", "DOANH THU", Model_Menu.MenuType.MENU));
         listMenu1.addItem(new Model_Menu("5", "TIỀN TỒN", Model_Menu.MenuType.MENU));
         listMenu1.addItem(new Model_Menu("6", "NHÂN VIÊN", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("8", "KHÁCH HÀNG", Model_Menu.MenuType.MENU));
         listMenu1.addItem(new Model_Menu("7", "THOÁT", Model_Menu.MenuType.MENU));
 
 //        listMenu1.addItem(new Model_Menu("", "My Data", Model_Menu.MenuType.TITLE));

@@ -4,23 +4,23 @@
  */
 package Sevices.impl;
 
-import Reponsitories.GioHangIRepon;
-import Reponsitories.impl.GioHangRepon;
-import Sevices.GioHangISevice;
-import ViewModels.GioHangVM;
+import Reponsitories.impl.BHGioHangRepon;
+import ViewModels.BHGioHangVM;
 import java.util.List;
+import Reponsitories.BHGioHangIRepon;
+import Sevices.BHGioHangISevice;
 
 
 /**
  *
  * @author TRONG NGHIA
  */
-public class GioHangSevice implements GioHangISevice {
+public class BHGioHangSevice implements BHGioHangISevice {
 
-    GioHangIRepon ghRepon = new GioHangRepon();
+    BHGioHangIRepon ghRepon = new BHGioHangRepon();
 
     @Override
-    public List<GioHangVM> findAll() {
+    public List<BHGioHangVM> findAll() {
         try {
             return ghRepon.findAll();
         } catch (Exception e) {
@@ -30,7 +30,7 @@ public class GioHangSevice implements GioHangISevice {
     }
 
     @Override
-    public List<GioHangVM> getOne(String ma) {
+    public List<BHGioHangVM> getOne(String ma) {
         try {
             return ghRepon.getOne(ma);
         } catch (Exception e) {

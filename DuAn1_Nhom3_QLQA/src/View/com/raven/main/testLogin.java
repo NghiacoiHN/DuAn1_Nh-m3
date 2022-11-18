@@ -4,15 +4,15 @@
  */
 package View.com.raven.main;
 
-import Sevices.GioHangISevice;
-import Sevices.impl.GioHangSevice;
+import Sevices.impl.BHGioHangSevice;
 import Utilities.DBConnection;
-import ViewModels.GioHangVM;
+import ViewModels.BHGioHangVM;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Sevices.BHGioHangISevice;
 
 /**
  *
@@ -91,13 +91,13 @@ public class testLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    GioHangISevice ghsv = new GioHangSevice();
+    BHGioHangISevice ghsv = new BHGioHangSevice();
 
     private void loadTB() {
-        List<GioHangVM> listGH = ghsv.findAll();
+        List<BHGioHangVM> listGH = ghsv.findAll();
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[]{"Mã hóa đơn", "Tên sản phẩm", "Tên loại", "Chất liệu", "Màu sắc", "Size", "Số lượng", "Đơn giá"});
-        for (GioHangVM x : listGH) {
+        for (BHGioHangVM x : listGH) {
             model.addRow(new Object[]{x.getMaHD(), x.getTenSP(), x.getTenLoaiSP(),
                 x.getTenCL(), x.getTenMS(), x.getTenSize(), x.getSoLuong(), x.getDonGia()});
         }

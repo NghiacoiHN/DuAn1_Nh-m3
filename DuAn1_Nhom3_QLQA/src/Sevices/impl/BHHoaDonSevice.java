@@ -4,23 +4,23 @@
  */
 package Sevices.impl;
 
-import DomainModels.HoaDonDM;
-import Reponsitories.HoaDonIRepon;
-import Reponsitories.impl.HoaDonRepon;
-import Sevices.HoaDonISevice;
-import ViewModels.HoaDonVM;
+import DomainModels.BHHoaDonDM;
+import Reponsitories.impl.BHHoaDonRepon;
+import ViewModels.BhHoaDonVM;
 import java.util.List;
+import Reponsitories.BHHoaDonIRepon;
+import Sevices.BHHoaDonISevice;
 
 /**
  *
  * @author TRONG NGHIA
  */
-public class HoaDonSevice implements HoaDonISevice {
+public class BHHoaDonSevice implements BHHoaDonISevice {
 
-    HoaDonIRepon hdRepon = new HoaDonRepon();
+    BHHoaDonIRepon hdRepon = new BHHoaDonRepon();
 
     @Override
-    public List<HoaDonVM> findAll() {
+    public List<BhHoaDonVM> findAll() {
         try {
             return hdRepon.findAll();
         } catch (Exception e) {
@@ -30,7 +30,7 @@ public class HoaDonSevice implements HoaDonISevice {
     }
 
     @Override
-    public List<HoaDonVM> findByTT(Integer trangThai) {
+    public List<BhHoaDonVM> findByTT(Integer trangThai) {
         try {
             return hdRepon.findByTT(trangThai);
         } catch (Exception e) {
@@ -40,7 +40,7 @@ public class HoaDonSevice implements HoaDonISevice {
     }
 
     @Override
-    public boolean add(HoaDonDM a) {
+    public boolean add(BHHoaDonDM a) {
         try {
             return hdRepon.add(a);
         } catch (Exception e) {
@@ -60,7 +60,7 @@ public class HoaDonSevice implements HoaDonISevice {
     }
 
     @Override
-    public boolean update(HoaDonDM a, String ma) {
+    public boolean update(BHHoaDonDM a, String ma) {
         try {
             return hdRepon.update(a, ma);
         } catch (Exception e) {
