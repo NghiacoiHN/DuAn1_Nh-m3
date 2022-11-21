@@ -16,7 +16,8 @@ import java.util.logging.Logger;
  * @author TRONG NGHIA
  */
 public class DBConnection {
-     private static final String USERNAME = "sa";
+
+    private static final String USERNAME = "sa";
     private static final String PASSWORD = "123456789";
     private static final String SERVER_NAME = "Localhost";
     private static final String PORT = "1433";

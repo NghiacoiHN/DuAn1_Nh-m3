@@ -136,7 +136,6 @@ public class JFormDoanhThu extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.component.Card card1;
     private com.raven.component.Card card2;

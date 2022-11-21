@@ -11,6 +11,7 @@ import java.math.BigDecimal;
  * @author TRONG NGHIA
  */
 public class BHGioHangVM {
+
     String maHD;
     String tenSP;
     String tenLoaiSP;
@@ -18,6 +19,8 @@ public class BHGioHangVM {
     String tenMS;
     String tenSize;
     String tenSX;
+    Integer soLuong;
+    BigDecimal donGia;
 
     public String getTenSX() {
         return tenSX;
@@ -26,8 +29,6 @@ public class BHGioHangVM {
     public void setTenSX(String tenSX) {
         this.tenSX = tenSX;
     }
-    Integer soLuong;
-    BigDecimal donGia;
 
     public BHGioHangVM() {
     }
@@ -106,6 +107,5 @@ public class BHGioHangVM {
     public void setDonGia(BigDecimal donGia) {
         this.donGia = donGia;
     }
-    
-    
+
 }

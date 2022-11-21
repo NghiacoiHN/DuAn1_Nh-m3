@@ -57,7 +57,6 @@ public class JFormHoaDon extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.swing.PanelBorder panelBorder1;
     // End of variables declaration//GEN-END:variables

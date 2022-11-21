@@ -13,6 +13,7 @@ import java.util.List;
  * @author TRONG NGHIA
  */
 public interface BHSanPhamIRepon {
+
     List<BHSanPhamVM> findAll();
 
     BHSanPhamVM getOne(Integer trangThai);
@@ -22,4 +23,6 @@ public interface BHSanPhamIRepon {
     boolean delete(String ma);
 
     boolean update(BHSanPhamDM a, String ID);
+
+    List<BHSanPhamDM> getIDCTSP(String ma);
 }

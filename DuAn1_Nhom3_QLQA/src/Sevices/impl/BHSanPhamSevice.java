@@ -49,5 +49,14 @@ public class BHSanPhamSevice implements BHSanPhamISevice {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    
+    @Override
+    public List<BHSanPhamDM> getIDCTSP(String ma) {
+        try {
+            return spRepon.getIDCTSP(ma);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

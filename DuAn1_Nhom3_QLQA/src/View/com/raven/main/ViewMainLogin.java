@@ -1,3 +1,4 @@
+
 package View.com.raven.main;
 
 import com.raven.component.PanelCover;
@@ -93,7 +94,6 @@ public class ViewMainLogin extends javax.swing.JFrame {
             }
         });
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

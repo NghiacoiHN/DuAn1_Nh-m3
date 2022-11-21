@@ -14,6 +14,7 @@ import java.util.List;
  * @author TRONG NGHIA
  */
 public interface BHSanPhamISevice {
+
     List<BHSanPhamVM> findAll();
 
     BHSanPhamVM getOne(Integer trangThai);
@@ -23,4 +24,6 @@ public interface BHSanPhamISevice {
     boolean delete(String ma);
 
     boolean update(BHSanPhamDM a, String ID);
+
+    List<BHSanPhamDM> getIDCTSP(String ma);
 }

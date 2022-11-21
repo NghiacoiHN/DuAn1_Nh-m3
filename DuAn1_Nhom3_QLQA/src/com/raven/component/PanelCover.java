@@ -1,6 +1,5 @@
 package com.raven.component;
 
-
 import com.raven.swing.ButtonOutLine;
 import java.awt.Color;
 import java.awt.Font;
@@ -34,7 +33,7 @@ public class PanelCover extends javax.swing.JPanel {
         init();
 //        getSelect();
     }
-    
+
     private void init() {
         title = new JLabel("Welcome Back!");
         title.setFont(new Font("sansserif", 1, 30));
@@ -139,8 +138,6 @@ public class PanelCover extends javax.swing.JPanel {
             this.isLogin = login;
         }
     }
-
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

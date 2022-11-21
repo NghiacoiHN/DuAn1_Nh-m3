@@ -4,9 +4,11 @@
  */
 package Reponsitories.impl;
 
+import DomainModels.BHGioHangDM;
+import DomainModels.BHSanPhamDM;
 import Utilities.DBConnection;
 import ViewModels.BHGioHangVM;
-import ViewModels.BhHoaDonVM;
+import ViewModels.BHHoaDonVM;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -102,28 +104,29 @@ public class BHGioHangRepon implements BHGioHangIRepon {
 
         return products;
     }
-//
-//    @Override
-//    public boolean add(HoaDonDM a) {
-//        String sql = "INSERT INTO HoaDon\n"
-//                + "                  (NgayTao, TenKH, SDTKH, TrangThai)\n"
-//                + "VALUES (?,?,?,2)";
-//        int check = 0;
-//        try {
-//            Connection connection = DBConnection.getConnection();
-//            PreparedStatement ps = connection.prepareStatement(sql);
-//            ps.setObject(1, a.getNgayTao());
-//            ps.setObject(2, a.getTenKH());
-//            ps.setObject(3, a.getSDTKH());
-//            check = ps.executeUpdate();
-//
-//            ps.close();
-//            connection.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        return check > 0;
-//    }
+
+    @Override
+    public boolean add(BHGioHangDM a) {
+        String sql = "INSERT INTO HoaDonChiTiet\n"
+                + "                  (IDHD, IDCTSP, SoLuong, DonGia)\n"
+                + "VALUES (?,?,?,?)";
+        int check = 0;
+        try {
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setObject(1, a.getIDHoaDon());
+            ps.setObject(2, a.getIDCTSP());
+            ps.setObject(3, a.getSoLuong());
+            ps.setObject(4, a.getDonGia());
+            check = ps.executeUpdate();
+
+            ps.close();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return check > 0;
+    }
 
 }

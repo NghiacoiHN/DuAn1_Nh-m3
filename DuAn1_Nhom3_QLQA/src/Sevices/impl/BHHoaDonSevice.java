@@ -6,7 +6,7 @@ package Sevices.impl;
 
 import DomainModels.BHHoaDonDM;
 import Reponsitories.impl.BHHoaDonRepon;
-import ViewModels.BhHoaDonVM;
+import ViewModels.BHHoaDonVM;
 import java.util.List;
 import Reponsitories.BHHoaDonIRepon;
 import Sevices.BHHoaDonISevice;
@@ -20,7 +20,7 @@ public class BHHoaDonSevice implements BHHoaDonISevice {
     BHHoaDonIRepon hdRepon = new BHHoaDonRepon();
 
     @Override
-    public List<BhHoaDonVM> findAll() {
+    public List<BHHoaDonVM> findAll() {
         try {
             return hdRepon.findAll();
         } catch (Exception e) {
@@ -30,7 +30,7 @@ public class BHHoaDonSevice implements BHHoaDonISevice {
     }
 
     @Override
-    public List<BhHoaDonVM> findByTT(Integer trangThai) {
+    public List<BHHoaDonVM> findByTT(Integer trangThai) {
         try {
             return hdRepon.findByTT(trangThai);
         } catch (Exception e) {
@@ -66,6 +66,16 @@ public class BHHoaDonSevice implements BHHoaDonISevice {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    @Override
+    public List<BHHoaDonDM> getIDHD(String ma) {
+        try {
+            return hdRepon.getIDHD(ma);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 

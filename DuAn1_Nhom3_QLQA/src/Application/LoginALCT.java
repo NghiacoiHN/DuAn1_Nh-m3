@@ -9,5 +9,5 @@ package Application;
  * @author TRONG NGHIA
  */
 public class LoginALCT {
-    
+
 }

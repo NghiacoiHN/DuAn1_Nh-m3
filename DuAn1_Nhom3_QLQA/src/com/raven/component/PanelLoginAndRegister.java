@@ -12,9 +12,12 @@ import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.Provider;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -42,27 +45,68 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
 
     private void initRegister() {
         register.setLayout(new MigLayout("wrap", "push[center]push", "push[]25[]10[]10[]25[]push"));
-        JLabel label = new JLabel("Create Account");
+        JLabel label = new JLabel("QUÊN MẬT KHẨU");
         label.setFont(new Font("sansserif", 1, 30));
         label.setForeground(new Color(7, 164, 121));
         register.add(label);
-        MyTextField txtUser = new MyTextField();
-        txtUser.setPrefixIcon(new ImageIcon(getClass().getResource("/com/raven/icon/user.png")));
-        txtUser.setHint("Name");
-        register.add(txtUser, "w 60%");
+//        MyTextField txtUser = new MyTextField();
+//        txtUser.setPrefixIcon(new ImageIcon(getClass().getResource("/com/raven/icon/user.png")));
+//        txtUser.setHint("Tài Khoản");
+//        register.add(txtUser, "w 60%");
         MyTextField txtEmail = new MyTextField();
         txtEmail.setPrefixIcon(new ImageIcon(getClass().getResource("/com/raven/icon/mail.png")));
         txtEmail.setHint("Email");
         register.add(txtEmail, "w 60%");
+        Button btnLayMa = new Button();
+        btnLayMa.setBackground(new Color(7, 164, 121));
+        btnLayMa.setForeground(new Color(250, 250, 250));
+        btnLayMa.setText("Lấy Mã");
+        register.add(btnLayMa, "w 40%, h 40");
+//        btnLayMa.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                try {
+//                    int randomCode;
+//                    Random rand = new Random();
+//                    randomCode = rand.nextInt(999999);
+//                    String host = "smtp.gmail.com";
+//                    String user = "tsnemailsndr@gmail.com";
+//                    String pass = "vQ#Tgez@=KRFM2E4";
+//                    String to = txtEmail.getText();
+//                    String subject = "Reseting Code";
+//                    String message = "Your reset code is " + randomCode;
+//                    boolean sessionDebug = false;
+//                    Properties pros = System.getProperties();
+//                    pros.put("mail.smtp.starttls.enable", "true");
+//                    pros.put("mail.smtp.host", "host");
+//                    pros.put("mail.smtp.port", "587");
+//                    pros.put("mail.smtp.auth", "true");
+//                    pros.put("mail.smtp.starttls.required", "true");
+//                    java.security.Security.addProvider(new Provider());
+//                } catch (Exception e) {
+//                }
+//            }
+//
+//        }
+//        );
         MyPasswordField txtPass = new MyPasswordField();
         txtPass.setPrefixIcon(new ImageIcon(getClass().getResource("/com/raven/icon/pass.png")));
-        txtPass.setHint("Password");
+        txtPass.setHint("OTP");
         register.add(txtPass, "w 60%");
         Button cmd = new Button();
         cmd.setBackground(new Color(7, 164, 121));
         cmd.setForeground(new Color(250, 250, 250));
-        cmd.setText("ĐĂNG KÝ");
+        cmd.setText("Đổi Mật Khẩu");
         register.add(cmd, "w 40%, h 40");
+        cmd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+
+        }
+        );
+
     }
 
     private void initLogin() {
@@ -117,7 +161,7 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
                 try {
                     ps = connection.prepareStatement(sql);
                 } catch (SQLException ex) {
-                    Logger.getLogger(PanelLoginAndRegister.class.getName()).log(Level.SEVERE, null, ex);
+                    ex.printStackTrace();
                 }
                 ResultSet rs = null;
                 try {
@@ -126,11 +170,16 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
                     Logger.getLogger(PanelLoginAndRegister.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 try {
-                    if (rs.next()) {
-                        ViewMainManage home = new ViewMainManage();
-                        home.show();
-                        ViewMainLogin login = new ViewMainLogin();
-                        login.dispose();
+                    if (txtSDT.getText().trim().isEmpty() || txtPass.getText().trim().isEmpty()) {
+                        JOptionPane.showMessageDialog(txtSDT, "Mời Nhập Tài Khoản Và Mật Khẩu");
+                    } else if (rs.next()) {
+                        if (true) {
+                            ViewMainManage homeMG = new ViewMainManage();
+                            homeMG.show();
+                        } else {
+                            ViewMainStaff homeST = new ViewMainStaff();
+                            homeST.show();
+                        }
 
                     } else {
                         JOptionPane.showMessageDialog(txtPass, "Sai Tài Khoản Hoặc Mật Khẩu");

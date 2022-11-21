@@ -8,14 +8,23 @@ package ViewModels;
  *
  * @author TRONG NGHIA
  */
-public class BhHoaDonVM {
+public class BHHoaDonVM {
+    
+    String IDHD;
 
+    public String getIDHD() {
+        return IDHD;
+    }
+
+    public void setIDHD(String IDHD) {
+        this.IDHD = IDHD;
+    }
     String MaHD;
     String tenKH;
     String ngayTao;
     Integer trangThai;
 
-    public BhHoaDonVM() {
+    public BHHoaDonVM() {
     }
 
     public String getMaHD() {

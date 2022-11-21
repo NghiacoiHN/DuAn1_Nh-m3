@@ -6,7 +6,7 @@ package Reponsitories.impl;
 
 import DomainModels.BHHoaDonDM;
 import Utilities.DBConnection;
-import ViewModels.BhHoaDonVM;
+import ViewModels.BHHoaDonVM;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import Reponsitories.BHHoaDonIRepon;
+import ViewModels.BHGioHangVM;
 
 /**
  *
@@ -22,16 +23,17 @@ import Reponsitories.BHHoaDonIRepon;
 public class BHHoaDonRepon implements BHHoaDonIRepon {
 
     @Override
-    public List<BhHoaDonVM> findAll() {
-        List<BhHoaDonVM> products = new ArrayList<>();
-        String sql = "SELECT MaHD, NgayTao, TenKH, TrangThai\n"
+    public List<BHHoaDonVM> findAll() {
+        List<BHHoaDonVM> products = new ArrayList<>();
+        String sql = "SELECT IDHD, MaHD, NgayTao, TenKH, TrangThai\n"
                 + "FROM     HoaDon";
         try {
             Connection connection = DBConnection.getConnection();
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                BhHoaDonVM hoaDon1 = new BhHoaDonVM();
+                BHHoaDonVM hoaDon1 = new BHHoaDonVM();
+                hoaDon1.setIDHD(rs.getString("IDHD"));
                 hoaDon1.setMaHD(rs.getString("MaHD"));
                 hoaDon1.setNgayTao(rs.getString("NgayTao"));
                 hoaDon1.setTenKH(rs.getString("TenKH"));
@@ -49,8 +51,8 @@ public class BHHoaDonRepon implements BHHoaDonIRepon {
     }
 
     @Override
-    public List<BhHoaDonVM> findByTT(Integer trangThai) {
-        List<BhHoaDonVM> products = new ArrayList<>();
+    public List<BHHoaDonVM> findByTT(Integer trangThai) {
+        List<BHHoaDonVM> products = new ArrayList<>();
         String sql = "SELECT MaHD, NgayTao, TenKH, TrangThai\n"
                 + "FROM     HoaDon\n"
                 + "WHERE TrangThai = ?";
@@ -60,7 +62,7 @@ public class BHHoaDonRepon implements BHHoaDonIRepon {
             ps.setObject(1, trangThai);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                BhHoaDonVM hoaDon1 = new BhHoaDonVM();
+                BHHoaDonVM hoaDon1 = new BHHoaDonVM();
                 hoaDon1.setMaHD(rs.getString("MaHD"));
                 hoaDon1.setNgayTao(rs.getString("NgayTao"));
                 hoaDon1.setTenKH(rs.getString("TenKH"));
@@ -144,6 +146,32 @@ public class BHHoaDonRepon implements BHHoaDonIRepon {
         }
 
         return check > 0;
+    }
+
+    @Override
+    public List<BHHoaDonDM> getIDHD(String ma) {
+        List<BHHoaDonDM> products = new ArrayList<>();
+        String sql = "SELECT IDHD\n"
+                + "FROM     HoaDon\n"
+                + "WHERE MaHD = ?";
+        try {
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setObject(1, ma);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                BHHoaDonDM hoaDon1 = new BHHoaDonDM();
+                hoaDon1.setIDHD(rs.getString("IDHD"));
+                products.add(hoaDon1);
+            }
+            rs.close();
+            ps.close();
+            connection.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return products;
     }
 
 }

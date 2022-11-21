@@ -11,6 +11,7 @@ import java.math.BigDecimal;
  * @author TRONG NGHIA
  */
 public class BHGioHangDM {
+
     String IDHDCT;
     String IDHoaDon;
     String IDCTSP;
@@ -21,14 +22,8 @@ public class BHGioHangDM {
     public BHGioHangDM() {
     }
 
-    public BHGioHangDM(String IDHDCT, String IDHoaDon, String IDCTSP, Integer soLuong, BigDecimal donGia, Integer trangThai) {
-        this.IDHDCT = IDHDCT;
-        this.IDHoaDon = IDHoaDon;
-        this.IDCTSP = IDCTSP;
-        this.soLuong = soLuong;
-        this.donGia = donGia;
-        this.trangThai = trangThai;
-    }
+   
+
 
     public String getIDHDCT() {
         return IDHDCT;
@@ -54,6 +49,9 @@ public class BHGioHangDM {
         this.IDCTSP = IDCTSP;
     }
 
+
+  
+
     public Integer getSoLuong() {
         return soLuong;
     }
@@ -77,5 +75,7 @@ public class BHGioHangDM {
     public void setTrangThai(Integer trangThai) {
         this.trangThai = trangThai;
     }
-    
+
+  
+
 }

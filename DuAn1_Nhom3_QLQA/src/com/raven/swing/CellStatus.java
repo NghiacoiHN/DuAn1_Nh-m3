@@ -38,7 +38,6 @@ public class CellStatus extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.swing.TableStatus status;
     // End of variables declaration//GEN-END:variables

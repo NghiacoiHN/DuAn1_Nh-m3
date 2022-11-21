@@ -47,7 +47,7 @@ public class ViewMainStaff extends javax.swing.JFrame {
                     setForm(formHD);
                 } else if (index == 3) {
                     setForm(formDT);
-                } else if (index == 5) {
+                } else if (index == 6) {
                     int chon = JOptionPane.showConfirmDialog(panelBorder1, "BẠN CÓ MUỐN THOÁT KHÔNG?", "Xác nhận", JOptionPane.YES_NO_OPTION);
                     if (chon == JOptionPane.YES_OPTION) {
                         System.exit(0);

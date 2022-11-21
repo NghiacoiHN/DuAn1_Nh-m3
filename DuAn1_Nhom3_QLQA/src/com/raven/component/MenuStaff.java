@@ -34,7 +34,7 @@ public class MenuStaff extends javax.swing.JPanel {
         listMenu1.addItem(new Model_Menu("3", "HÓA ĐƠN", Model_Menu.MenuType.MENU));
         listMenu1.addItem(new Model_Menu("4", "DOANH THU", Model_Menu.MenuType.MENU));
         listMenu1.addItem(new Model_Menu("5", "TIỀN TỒN", Model_Menu.MenuType.MENU));
-//        listMenu1.addItem(new Model_Menu("6", "NHÂN VIÊN", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("6", "KHÁCH HÀNG", Model_Menu.MenuType.MENU));
         listMenu1.addItem(new Model_Menu("7", "THOÁT", Model_Menu.MenuType.MENU));
 
 //        listMenu1.addItem(new Model_Menu("", "My Data", Model_Menu.MenuType.TITLE));
@@ -99,7 +99,7 @@ public class MenuStaff extends javax.swing.JPanel {
     protected void paintChildren(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        GradientPaint g = new GradientPaint(0, 0, Color.decode("#1CB5E0"), 0, getHeight(), Color.decode("#000046"));
+        GradientPaint g = new GradientPaint(0, 0, Color.decode("#E2D555"), 0, getHeight(), Color.decode("#5E580E"));
         g2.setPaint(g);
         g2.fillRoundRect(0, 0, getWidth(), getHeight(), 15, 15);
         g2.fillRect(getWidth() - 20, 0, getWidth(), getHeight());

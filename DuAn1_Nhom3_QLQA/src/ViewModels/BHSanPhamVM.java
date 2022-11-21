@@ -12,6 +12,7 @@ import java.math.BigDecimal;
  */
 public class BHSanPhamVM {
 
+    String IDCTSP;
     String maCTSP;
     String tenSP;
     String tenLoaiSP;
@@ -37,6 +38,14 @@ public class BHSanPhamVM {
         this.soLuongTon = soLuongTon;
         this.giaBan = giaBan;
         this.trangThai = trangThai;
+    }
+
+    public String getIDCTSP() {
+        return IDCTSP;
+    }
+
+    public void setIDCTSP(String IDCTSP) {
+        this.IDCTSP = IDCTSP;
     }
 
     public String getTenXuatXu() {

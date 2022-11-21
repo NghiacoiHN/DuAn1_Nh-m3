@@ -4,12 +4,12 @@
  */
 package Sevices.impl;
 
+import DomainModels.BHGioHangDM;
 import Reponsitories.impl.BHGioHangRepon;
 import ViewModels.BHGioHangVM;
 import java.util.List;
 import Reponsitories.BHGioHangIRepon;
 import Sevices.BHGioHangISevice;
-
 
 /**
  *
@@ -39,24 +39,14 @@ public class BHGioHangSevice implements BHGioHangISevice {
         }
     }
 
-//    @Override
-//    public boolean add(HoaDonDM a) {
-//        try {
-//            return hdRepon.add(a);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return false;
-//        }
-//    }
-//
-//    @Override
-//    public boolean delete(String ma) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//
-//    @Override
-//    public boolean update(HoaDonDM a, String ID) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
+    @Override
+    public boolean add(BHGioHangDM a) {
+        try {
+            return ghRepon.add(a);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 }

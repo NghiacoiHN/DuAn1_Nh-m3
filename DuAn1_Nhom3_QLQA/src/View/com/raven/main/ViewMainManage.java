@@ -52,7 +52,7 @@ public class ViewMainManage extends javax.swing.JFrame {
                     setForm(formDT);
                 } else if (index == 5) {
                     setForm(formNV);
-                } else if (index == 6) {
+                } else if (index == 7) {
                     int chon = JOptionPane.showConfirmDialog(panelBorder1, "BẠN CÓ MUỐN THOÁT KHÔNG?", "Xác nhận", JOptionPane.YES_NO_OPTION);
                     if (chon == JOptionPane.YES_OPTION) {
                         System.exit(0);

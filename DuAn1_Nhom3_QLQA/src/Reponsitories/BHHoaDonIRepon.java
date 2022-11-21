@@ -5,7 +5,7 @@
 package Reponsitories;
 
 import DomainModels.BHHoaDonDM;
-import ViewModels.BhHoaDonVM;
+import ViewModels.BHHoaDonVM;
 import java.util.List;
 
 /**
@@ -14,13 +14,17 @@ import java.util.List;
  */
 public interface BHHoaDonIRepon {
 
-    List<BhHoaDonVM> findAll();
+    List<BHHoaDonVM> findAll();
 
-    List<BhHoaDonVM> findByTT(Integer trangThai);
+    List<BHHoaDonVM> findByTT(Integer trangThai);
 
     boolean add(BHHoaDonDM a);
 
     boolean delete(String ma);
 
     boolean update(BHHoaDonDM a, String ma);
+
+    List<BHHoaDonDM> getIDHD(String ma);
+
+
 }

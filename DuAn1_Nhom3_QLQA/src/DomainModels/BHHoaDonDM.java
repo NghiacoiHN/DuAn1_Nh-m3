@@ -11,6 +11,7 @@ import java.math.BigDecimal;
  * @author TRONG NGHIA
  */
 public class BHHoaDonDM {
+
     String IDHD;
     String IDKH;
     String IDNV;
@@ -176,6 +177,5 @@ public class BHHoaDonDM {
     public void setTrangThai(Integer trangThai) {
         this.trangThai = trangThai;
     }
-    
-    
+
 }
