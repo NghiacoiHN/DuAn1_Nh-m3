@@ -9,7 +9,7 @@ package ViewModels;
  * @author TRONG NGHIA
  */
 public class BHHoaDonVM {
-    
+
     String IDHD;
 
     public String getIDHD() {
@@ -66,7 +66,15 @@ public class BHHoaDonVM {
             return "Chưa thanh toán";
         } else if (this.trangThai == 10) {
             return "Bị hủy";
-        } else {
+        } else if (this.trangThai == 3) {
+            return "Tạo đơn giao hàng";
+        } else if (this.trangThai == 4) {
+            return "Đang giao hàng";
+        } else if (this.trangThai == 5) {
+            return "Giao thành công";
+        } else if (this.trangThai == 6) {
+            return "Đổi/Trả hàng";
+        }else{
             return null;
         }
     }

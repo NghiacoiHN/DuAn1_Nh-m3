@@ -79,35 +79,24 @@ public class BHSanPhamRepon implements BHSanPhamIRepon {
     }
 
     @Override
-    public boolean update(BHSanPhamDM a, String ID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<BHSanPhamDM> getIDCTSP(String ma) {
-        List<BHSanPhamDM> products = new ArrayList<>();
-        String sql = "SELECT IDCTSP\n"
-                + "FROM     ChiTietSanPham\n"
+    public boolean updateSL(BHSanPhamDM a, String ma) {
+        String sql = "UPDATE ChiTietSanPham\n"
+                + "SET          SoLuongTon = ?\n"
                 + "WHERE MaCTSP = ?";
+        int check = 0;
         try {
             Connection connection = DBConnection.getConnection();
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setObject(1, ma);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                BHSanPhamDM sanPham1 = new BHSanPhamDM();
-                sanPham1.setIDCTSP(rs.getString("IDCTSP"));
-                products.add(sanPham1);
-            }
-            rs.close();
+            ps.setObject(1, a.getSoLuongTon());
+            ps.setObject(2, ma);
+            check = ps.executeUpdate();
             ps.close();
             connection.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-        return products;
+        return check > 0;
     }
+
 }
-
-

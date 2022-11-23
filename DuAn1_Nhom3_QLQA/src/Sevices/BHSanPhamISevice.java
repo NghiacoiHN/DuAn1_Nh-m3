@@ -23,7 +23,6 @@ public interface BHSanPhamISevice {
 
     boolean delete(String ma);
 
-    boolean update(BHSanPhamDM a, String ID);
+    boolean updateSL(BHSanPhamDM a, String ma);
 
-    List<BHSanPhamDM> getIDCTSP(String ma);
 }

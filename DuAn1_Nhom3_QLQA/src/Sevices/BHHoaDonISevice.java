@@ -27,5 +27,5 @@ public interface BHHoaDonISevice {
 
     List<BHHoaDonDM> getIDHD(String ma);
 
-
+    boolean addGiaoHang(BHHoaDonDM a);
 }

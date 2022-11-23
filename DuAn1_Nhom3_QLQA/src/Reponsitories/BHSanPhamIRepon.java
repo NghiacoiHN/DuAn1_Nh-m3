@@ -22,7 +22,5 @@ public interface BHSanPhamIRepon {
 
     boolean delete(String ma);
 
-    boolean update(BHSanPhamDM a, String ID);
-
-    List<BHSanPhamDM> getIDCTSP(String ma);
+    boolean updateSL(BHSanPhamDM a, String ma);
 }

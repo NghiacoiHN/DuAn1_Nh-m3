@@ -125,7 +125,7 @@ public class BHHoaDonRepon implements BHHoaDonIRepon {
     @Override
     public boolean update(BHHoaDonDM a, String ma) {
         String sql = "UPDATE HoaDon\n"
-                + "SET          NgayThanhToan =?, ThanhTien =?, TienDua =?, TienThua =?, HinhThucThanhToan =N'?', SoTienGiamGia =?, TrangThai = 1\n"
+                + "SET          NgayThanhToan =?, ThanhTien =?, TienDua =?, TienThua =?, HinhThucThanhToan = ?, SoTienGiamGia =?, TrangThai = 1\n"
                 + "WHERE MaHD= ?";
         int check = 0;
         try {
@@ -172,6 +172,33 @@ public class BHHoaDonRepon implements BHHoaDonIRepon {
         }
 
         return products;
+    }
+
+    @Override
+    public boolean addGiaoHang(BHHoaDonDM a) {
+        String sql = "INSERT INTO HoaDon\n"
+                + "                  (TenKH, SDTKH, TenShip, SDTShip, DiaChi, NgayMuonNhan, NgayTao, TrangThai)\n"
+                + "VALUES (?,?,?,?,?,?,?,3)";
+        int check = 0;
+        try {
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setObject(1, a.getTenKH());
+            ps.setObject(2, a.getSDTKH());
+            ps.setObject(3, a.getTenShip());
+            ps.setObject(4, a.getSDTShip());
+            ps.setObject(5, a.getDiaChi());
+            ps.setObject(6, a.getNgayMuonNhan());
+            ps.setObject(7, a.getNgayTao());
+            check = ps.executeUpdate();
+
+            ps.close();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return check > 0;
     }
 
 }

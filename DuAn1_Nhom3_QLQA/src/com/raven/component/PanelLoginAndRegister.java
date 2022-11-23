@@ -117,7 +117,7 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
         login.add(label);
 
         txtSDT.setPrefixIcon(new ImageIcon(getClass().getResource("/com/raven/icon/mail.png")));
-        txtSDT.setHint("Số Điện Thoại");
+        txtSDT.setHint("Email");
         login.add(txtSDT, "w 60%");
 
         txtPass.setPrefixIcon(new ImageIcon(getClass().getResource("/com/raven/icon/pass.png")));
@@ -156,7 +156,7 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
                 }
                 String userName = txtSDT.getText();
                 String passWord = txtPass.getText();
-                String sql = "Select * from NhanVien WHERE SDT='" + userName + "'and MatKhau ='" + passWord + "'";
+                String sql = "Select * from NhanVien WHERE Email='" + userName + "'and MatKhau ='" + passWord + "'";
                 PreparedStatement ps = null;
                 try {
                     ps = connection.prepareStatement(sql);

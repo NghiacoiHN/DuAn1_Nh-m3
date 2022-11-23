@@ -36,10 +36,10 @@ VALUES ('CH01',N'Cửa Hàng Vui Vẻ',N'Hà Nội',1),('CH02',N'Cửa Hàng V�
 SELECT*FROM CuaHang
 --Nhân viên
 INSERT INTO NhanVien
-                  (MaNV, HoNV, TenNV, SDT, MatKhau, ChucVu, DiaChi, TrangThai, IDCH)
-VALUES ('NV01',N'Nguyễn',N'Nghĩa','0337842655','123456',1,N'Hà Nội',1,'FDCB75A2-AC1D-4683-9321-84594E74812D'),
-('NV02',N'Nguyễn',N'Hoàng','0987654321','123456',2,N'Hà Nội',1,'B23CBF2F-C5D7-425D-9B3C-FC4098F74F5F')
-SELECT*FROM NhanVien WHERE SDT = 0987654321 and MatKhau = 123456 and ChucVu = 2
+                  (IDCH, MaNV, HoNV, TenNV, SDT, Email, MatKhau, ChucVu, DiaChi, TrangThai)
+VALUES ('4BA3BD69-64A6-4678-8AB5-44B15D386740','NV01',N'Nguyễn Trọng',N'Nghĩa','0337842655','nghiantph23346@fpt.edu.vn','123456',1,N'Hà Nội',1),
+('2EFEDA80-DD0D-495F-8CA3-D1596CE71F48','NV02',N'Lê Thế',N'Vinh','0345893615','vinhltph23387@fpt.edu.vn','123456',1,N'Hà Nội',1)
+SELECT*FROM NhanVien 
 --Hóa đơn
 INSERT INTO HoaDon
                   (ThanhTien, TienDua, TienThua, HinhThucThanhToan)
@@ -48,14 +48,14 @@ Select*from HoaDon
 --Chi tiết sản phẩm
 INSERT INTO ChiTietSanPham
                   (MaCTSP, IDCL, IDMS, IDSize, IDSP, IDLSP, IDXX, MoTa, SoLuongTon, GiaNhap, GiaBan, TrangThai)
-VALUES ('CTSP01','2184744D-C9E4-41DF-9C8F-62AC19AB3E80','C38BB44A-7FEF-486A-AB70-B26BD7A7B16A','819DAF3E-63B0-4082-9A92-A2B2E2043696',
-'5AB63082-B89B-4AF7-86A7-CE707CA3CE1D','5DECFA5B-6062-44C3-8C63-DA5F811F4F90','902D0A3B-9DA4-4565-84A1-4EB861680298',
-N'Đẹp',10,1000,1500,1),
-('CTSP02','0A3406EC-A532-447F-AFB8-8AFD956871BE','C38BB44A-7FEF-486A-AB70-B26BD7A7B16A','819DAF3E-63B0-4082-9A92-A2B2E2043696',
-'DC3CD743-A3D2-4F6D-AF8A-63159A810A3C','5DECFA5B-6062-44C3-8C63-DA5F811F4F90','1F1FE82C-6664-4F0E-BD41-DA6852ABB603',
-N'Đẹp',16,2000,2500,1)
+VALUES ('CTSP01','326CFC39-1A84-43CC-90F6-4EEBE75271C6','257C2048-771A-4B10-A665-41988346F884','EA49C9C9-969F-4D2C-B7EB-170279F09F70',
+'178DA487-20DC-45FB-A46B-D4A6C25DC46D','E4FDD482-6114-4FB4-AA5A-3DFD1F14B133','B40AAA17-CD31-4125-BC4D-DBDE555C485B',
+N'Đẹp',1015,1000,1500,1),
+('CTSP02','E72B7845-E3B0-4A1E-ADBA-2F499894E843','763B2F7B-E005-46C2-99CE-3AFE89A7A65E','EA49C9C9-969F-4D2C-B7EB-170279F09F70',
+'430611E7-D872-484A-94CA-E2B4E3A22236','FDD14731-1C96-4C12-913B-6C1AEF2011CB','B40AAA17-CD31-4125-BC4D-DBDE555C485B',
+N'Đẹp',160,2000,2500,1)
 Select*from ChiTietSanPham
-
+Select*from XuatXu
 
 --Hóa đơn chi tiết
 INSERT INTO HoaDonChiTiet
@@ -65,15 +65,13 @@ VALUES ('53502DF4-492B-4A2D-9455-16D444C7B8E8','DC22CA4F-3AAE-4FF6-AACA-7BBD060B
 Select*from HoaDonChiTiet
 Select*from HoaDon
 
-SELECT HoaDon.MaHD, SanPham.TenSp, LoaiSP.TenLSP, ChatLieu.TenCL, MauSac.TenMS, Size.TenSize, XuatXu.TenNuoc, HoaDonChiTiet.SoLuong, HoaDonChiTiet.DonGia
-FROM     HoaDon INNER JOIN
-                  HoaDonChiTiet ON HoaDon.IDHD = HoaDonChiTiet.IDHD INNER JOIN
-                  ChiTietSanPham ON HoaDonChiTiet.IDCTSP = ChiTietSanPham.IDCTSP INNER JOIN
-                  LoaiSP ON ChiTietSanPham.IDLSP = LoaiSP.IDLSP INNER JOIN
-                  ChatLieu ON ChiTietSanPham.IDCL = ChatLieu.IDCL INNER JOIN
-                  MauSac ON ChiTietSanPham.IDMS = MauSac.IDMS INNER JOIN
-                  Size ON ChiTietSanPham.IDSize = Size.IDSize INNER JOIN
-                  XuatXu ON ChiTietSanPham.IDXX = XuatXu.IDXX INNER JOIN
-                  SanPham ON ChiTietSanPham.IDSP = SanPham.IDSP
-WHERE HoaDon.MaHD = ?
 
+UPDATE ChiTietSanPham
+SET          SoLuongTon = 256
+WHERE MaCTSP = 'CTSP02'
+
+Select * from ChiTietSanPham
+
+INSERT INTO HoaDon
+                  (TenKH, SDTKH, TenShip, SDTShip, DiaChi, NgayMuonNhan, NgayTao, TrangThai)
+VALUES (?,?,?,?,?,?,?,2)

@@ -29,7 +29,35 @@ public class BHHoaDonDM {
     String tenShip;
     String SDTShip;
     String diaChi;
+    String ngayMuonNhan;
+    String ngayGiao;
+    String ngayGiaoThanhCong;
     Integer trangThai;
+    
+
+    public String getNgayMuonNhan() {
+        return ngayMuonNhan;
+    }
+
+    public void setNgayMuonNhan(String ngayMuonNhan) {
+        this.ngayMuonNhan = ngayMuonNhan;
+    }
+
+    public String getNgayGiao() {
+        return ngayGiao;
+    }
+
+    public void setNgayGiao(String ngayGiao) {
+        this.ngayGiao = ngayGiao;
+    }
+
+    public String getNgayGiaoThanhCong() {
+        return ngayGiaoThanhCong;
+    }
+
+    public void setNgayGiaoThanhCong(String ngayGiaoThanhCong) {
+        this.ngayGiaoThanhCong = ngayGiaoThanhCong;
+    }
 
     public BigDecimal getSoTienGiam() {
         return soTienGiam;
