@@ -27,5 +27,7 @@ public interface BHHoaDonIRepon {
     List<BHHoaDonDM> getIDHD(String ma);
 
     boolean addGiaoHang(BHHoaDonDM a);
+    
+    boolean updateGiaoHang(BHHoaDonDM a, String ma);
 
 }

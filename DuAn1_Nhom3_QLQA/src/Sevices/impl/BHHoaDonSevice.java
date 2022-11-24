@@ -88,4 +88,14 @@ public class BHHoaDonSevice implements BHHoaDonISevice {
             return false;
         }
     }
+
+    @Override
+    public boolean updateGiaoHang(BHHoaDonDM a, String ma) {
+        try {
+            return hdRepon.updateGiaoHang(a, ma);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

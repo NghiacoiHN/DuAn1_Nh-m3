@@ -4,7 +4,6 @@
  */
 package Sevices;
 
-import Reponsitories.*;
 import DomainModels.BHHoaDonDM;
 import ViewModels.BHHoaDonVM;
 import java.util.List;
@@ -28,4 +27,6 @@ public interface BHHoaDonISevice {
     List<BHHoaDonDM> getIDHD(String ma);
 
     boolean addGiaoHang(BHHoaDonDM a);
+
+    boolean updateGiaoHang(BHHoaDonDM a, String ma);
 }

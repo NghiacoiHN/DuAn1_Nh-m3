@@ -71,7 +71,8 @@ SET          SoLuongTon = 256
 WHERE MaCTSP = 'CTSP02'
 
 Select * from ChiTietSanPham
+UPDATE HoaDon
+SET          ThanhTien =?, TienDua =?, TienThua =?, HinhThucThanhToan =?, SoTienGiamGia =?, NgayGiao =?, TrangThai = 4
+WHERE MaHD = ?
 
-INSERT INTO HoaDon
-                  (TenKH, SDTKH, TenShip, SDTShip, DiaChi, NgayMuonNhan, NgayTao, TrangThai)
-VALUES (?,?,?,?,?,?,?,2)
+

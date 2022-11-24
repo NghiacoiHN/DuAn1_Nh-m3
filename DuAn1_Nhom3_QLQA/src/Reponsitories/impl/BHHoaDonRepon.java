@@ -201,4 +201,30 @@ public class BHHoaDonRepon implements BHHoaDonIRepon {
         return check > 0;
     }
 
+    @Override
+    public boolean updateGiaoHang(BHHoaDonDM a, String ma) {
+        String sql = "UPDATE HoaDon\n"
+                + "SET          ThanhTien =?, TienDua =?, TienThua =?, HinhThucThanhToan =?, SoTienGiamGia =?, NgayGiao =?, TrangThai = 4\n"
+                + "WHERE MaHD = ?";
+        int check = 0;
+        try {
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setObject(1, a.getThanhTien());
+            ps.setObject(2, a.getTienDua());
+            ps.setObject(3, a.getTienThua());
+            ps.setObject(4, a.getHinhThucThanhToan());
+            ps.setObject(5, a.getSoTienGiam());
+            ps.setObject(6, a.getNgayGiao());
+            ps.setObject(7, ma);
+            check = ps.executeUpdate();
+            ps.close();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return check > 0;
+    }
+
 }
