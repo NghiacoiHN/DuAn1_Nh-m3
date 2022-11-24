@@ -5,6 +5,7 @@
 package Reponsitories;
 
 import DomainModels.BHSanPhamDM;
+import ViewModels.BHHoaDonVM;
 import ViewModels.BHSanPhamVM;
 import java.util.List;
 
@@ -16,6 +17,8 @@ public interface BHSanPhamIRepon {
 
     List<BHSanPhamVM> findAll();
 
+    List<BHSanPhamVM> selectSPbyCam(String maSP);
+
     BHSanPhamVM getOne(Integer trangThai);
 
     boolean add(BHSanPhamDM a);
@@ -23,4 +26,5 @@ public interface BHSanPhamIRepon {
     boolean delete(String ma);
 
     boolean updateSL(BHSanPhamDM a, String ma);
+
 }
