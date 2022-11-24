@@ -1651,19 +1651,20 @@ public class JFormBanHang extends javax.swing.JPanel implements Runnable, Thread
 
     private void txtTienShipKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTienShipKeyTyped
         // TODO add your handling code here:
-        if (txtSoTienGiam1.getText().trim().isEmpty()) {
-            lbThanhTien.setText(lbTongTien1.getText());
-        } else if (Double.parseDouble(txtSoTienGiam1.getText()) >= Double.parseDouble(lbTongTien1.getText())) {
-            JOptionPane.showMessageDialog(this, "Số Tiền Giảm Không Lớn Hơn Tổng Tiền");
+        if (txtTienShip.getText().trim().isEmpty()) {
+            lbThanhTien1.setText("0");
         } else {
             double thanhTien = 0;
             BigDecimal bgThanhTien = new BigDecimal(Double.toString(thanhTien));
+            double thanhTien1 = 0;
+            BigDecimal bgThanhTien1 = new BigDecimal(Double.toString(thanhTien1));
 //            BigDecimal tienShip = new BigDecimal(Double.parseDouble(txtTenShip.getText()));
 
             bgThanhTien = BigDecimal.valueOf(Double.parseDouble(lbTongTien1.getText()))
-                    .subtract(BigDecimal.valueOf(Double.parseDouble(txtSoTienGiam1.getText())))
-                    .add(BigDecimal.valueOf(Double.parseDouble(txtTenShip.getText())));
-            lbThanhTien1.setText(String.valueOf(bgThanhTien));
+                    .subtract(BigDecimal.valueOf(Double.parseDouble(txtSoTienGiam1.getText())));
+//                    .add(BigDecimal.valueOf(Double.parseDouble(txtTenShip.getText())));
+            bgThanhTien1 = bgThanhTien.add(BigDecimal.valueOf(Double.parseDouble(txtTienShip.getText())));
+            lbThanhTien1.setText(String.valueOf(bgThanhTien1));
         }
     }//GEN-LAST:event_txtTienShipKeyTyped
 
