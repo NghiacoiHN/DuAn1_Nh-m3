@@ -35,12 +35,22 @@ dist.jlink.dir=${dist.dir}/jlink
 dist.jlink.output=${dist.jlink.dir}/DuAn1_Nhom3_QLQA
 endorsed.classpath=
 excludes=
+<<<<<<< HEAD
+file.reference.activation.jar=D:\\StudyInFPT\\ThuVienJava\\activation.jar\\activation.jar
+file.reference.bridj-0.7.0.jar=D:\\StudyInFPT\\ThuVienJava\\jar_files\\bridj-0.7.0.jar
+file.reference.core-3.3.0.jar=D:\\StudyInFPT\\ThuVienJava\\core-3.3.0.jar\\core-3.3.0.jar
+file.reference.javase-3.3.0.jar=D:\\StudyInFPT\\ThuVienJava\\javase-3.3.0.jar\\javase-3.3.0.jar
+file.reference.jcalendar-1.4.jar=D:\\StudyInFPT\\ThuVienJava\\jcalendar-1.4.jar
+file.reference.LGoodDatePicker-11.2.1.jar=D:\\StudyInFPT\\ThuVienJava\\LGoodDatePicker-11.2.1.jar
+file.reference.log4j-1.2.17.jar=D:\\StudyInFPT\\ThuVienJava\\log4j-1.2.17.jar\\log4j-1.2.17.jar
+file.reference.mail.jar=D:\\StudyInFPT\\ThuVienJava\\mail.jar\\mail.jar
+=======
 file.reference.activation.jar=..\\ThuVienJava\\activation.jar
 file.reference.bridj-0.7.0.jar=..\\ThuVienJava\\bridj-0.7.0.jar
 file.reference.core-3.3.0.jar=..\\ThuVienJava\\core-3.3.0.jar
 file.reference.javase-3.3.0.jar=..\\ThuVienJava\\javase-3.3.0.jar
-file.reference.LGoodDatePicker-11.2.1.jar=D:\\StudyInFPT\\ThuVienJava\\LGoodDatePicker-11.2.1.jar
 file.reference.mail-1.4.7.jar=..\\ThuVienJava\\mail-1.4.7.jar
+>>>>>>> 277f16750d851a74548dca008116278b118c9f71
 file.reference.miglayout-4.0.jar=..\\ThuVienJava\\miglayout-4.0.jar
 file.reference.mssql-jdbc-11.2.0.jre17.jar=..\\ThuVienJava\\mssql-jdbc-11.2.0.jre17.jar
 file.reference.slf4j-api-1.7.2.jar=..\\ThuVienJava\\slf4j-api-1.7.2.jar
@@ -56,13 +66,17 @@ javac.classpath=\
     ${file.reference.timingframework-1.0.jar}:\
     ${file.reference.activation.jar}:\
     ${file.reference.bridj-0.7.0.jar}:\
+<<<<<<< HEAD
+    ${file.reference.slf4j-api-1.7.2.jar}:\
+    ${file.reference.LGoodDatePicker-11.2.1.jar}
+=======
     ${file.reference.core-3.3.0.jar}:\
     ${file.reference.javase-3.3.0.jar}:\
     ${file.reference.mail-1.4.7.jar}:\
     ${file.reference.slf4j-api-1.7.2.jar}:\
     ${file.reference.slf4j-log4j12.jar}:\
-    ${file.reference.webcam-capture-0.3.12.jar}:\
-    ${file.reference.LGoodDatePicker-11.2.1.jar}
+    ${file.reference.webcam-capture-0.3.12.jar}
+>>>>>>> 277f16750d851a74548dca008116278b118c9f71
 # Space-separated list of extra javac options
 javac.compilerargs=
 javac.deprecation=false
