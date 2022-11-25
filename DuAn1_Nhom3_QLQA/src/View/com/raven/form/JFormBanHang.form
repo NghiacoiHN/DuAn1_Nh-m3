@@ -2,7 +2,7 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <NonVisualComponents>
-    <Container class="com.raven.swing.PanelBorder" name="panelBorder4">
+    <Container class="org.netbeans.modules.form.InvalidComponent" name="panelBorder4">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -61,7 +61,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="com.raven.swing.Table" name="btlDSSP1">
+            <Component class="org.netbeans.modules.form.InvalidComponent" name="btlDSSP1">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="5" rowCount="0">
@@ -159,7 +159,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="com.raven.swing.PanelBorder" name="panelBorder1">
+    <Container class="org.netbeans.modules.form.InvalidComponent" name="panelBorder1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -238,15 +238,12 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="com.raven.swing.PanelBorder" name="panelBorder2">
+    <Container class="org.netbeans.modules.form.InvalidComponent" name="panelBorder2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelBorder2MouseReleased"/>
-      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -385,7 +382,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="com.raven.swing.PanelBorder" name="panelBorder3">
+    <Container class="org.netbeans.modules.form.InvalidComponent" name="panelBorder3">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -470,7 +467,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="com.raven.swing.Table" name="tblHoaDon">
+            <Component class="org.netbeans.modules.form.InvalidComponent" name="tblHoaDon">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="5" rowCount="0">
@@ -485,11 +482,6 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblHoaDonMouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblHoaDonMouseEntered"/>
-                <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblHoaDonMouseReleased"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -566,7 +558,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="com.raven.swing.PanelBorder" name="panelBorder5">
+    <Container class="org.netbeans.modules.form.InvalidComponent" name="panelBorder5">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -621,7 +613,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
-            <Container class="com.raven.swing.PanelBorder" name="panelBorder7">
+            <Container class="org.netbeans.modules.form.InvalidComponent" name="panelBorder7">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="H&#xf3;a &#x110;&#x1a1;n">
@@ -659,7 +651,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="com.raven.swing.PanelBorder" name="panelBorder8">
+                <Container class="org.netbeans.modules.form.InvalidComponent" name="panelBorder8">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -783,7 +775,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="com.raven.swing.PanelBorder" name="panelBorder9">
+                <Container class="org.netbeans.modules.form.InvalidComponent" name="panelBorder9">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -964,7 +956,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="com.raven.swing.PanelBorder" name="panelBorder10">
+                <Container class="org.netbeans.modules.form.InvalidComponent" name="panelBorder10">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1085,7 +1077,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="com.raven.swing.PanelBorder" name="panelBorder11">
+                <Container class="org.netbeans.modules.form.InvalidComponent" name="panelBorder11">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1255,11 +1247,11 @@
                         <Property name="text" type="java.lang.String" value="Ng&#xe0;y Mu&#x1ed1;n"/>
                       </Properties>
                     </Component>
-                    <Component class="com.github.lgooddatepicker.components.DatePicker" name="txtNgayKhachMuon">
+                    <Component class="org.netbeans.modules.form.InvalidComponent" name="txtNgayKhachMuon">
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="com.raven.swing.PanelBorder" name="panelBorder12">
+                <Container class="org.netbeans.modules.form.InvalidComponent" name="panelBorder12">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1376,7 +1368,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="com.raven.swing.PanelBorder" name="panelBorder13">
+                <Container class="org.netbeans.modules.form.InvalidComponent" name="panelBorder13">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1484,7 +1476,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="com.raven.swing.PanelBorder" name="panelBorder6">
+    <Container class="org.netbeans.modules.form.InvalidComponent" name="panelBorder6">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
