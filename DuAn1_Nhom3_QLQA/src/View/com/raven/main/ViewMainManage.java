@@ -10,6 +10,8 @@ import View.com.raven.form.JFormBanHang;
 import View.com.raven.form.JFormSanPham;
 import View.com.raven.form.JFormHoaDon;
 import View.com.raven.form.JFormDoanhThu;
+import View.com.raven.form.JFormKhachHang;
+import View.com.raven.form.JFormLichSuBanHang;
 import View.com.raven.form.JFromNhanVien;
 import java.awt.Color;
 import javax.swing.JComponent;
@@ -29,6 +31,8 @@ public class ViewMainManage extends javax.swing.JFrame {
     private JFormSanPham formSP;
     private JFormHoaDon formHD;
     private JFromNhanVien formNV;
+    private JFormKhachHang formKH;
+    private JFormLichSuBanHang formLS; 
 
     public ViewMainManage() {
         initComponents();
@@ -38,6 +42,8 @@ public class ViewMainManage extends javax.swing.JFrame {
         formSP = new JFormSanPham();
         formHD = new JFormHoaDon();
         formNV = new JFromNhanVien();
+        formKH = new JFormKhachHang();
+        formLS = new JFormLichSuBanHang();
         menu.initMoving(ViewMainManage.this);
         menu.addEventMenuSelected(new EventMenuSelected() {
             @Override
@@ -47,11 +53,13 @@ public class ViewMainManage extends javax.swing.JFrame {
                 } else if (index == 1) {
                     setForm(formSP);
                 } else if (index == 2) {
-                    setForm(formHD);
+                    setForm(formLS);
                 } else if (index == 3) {
                     setForm(formDT);
                 } else if (index == 5) {
                     setForm(formNV);
+                } else if (index == 6) {
+                    setForm(formKH);
                 } else if (index == 7) {
                     int chon = JOptionPane.showConfirmDialog(panelBorder1, "BẠN CÓ MUỐN THOÁT KHÔNG?", "Xác nhận", JOptionPane.YES_NO_OPTION);
                     if (chon == JOptionPane.YES_OPTION) {

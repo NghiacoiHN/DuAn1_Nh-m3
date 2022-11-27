@@ -125,19 +125,20 @@ public class BHHoaDonRepon implements BHHoaDonIRepon {
     @Override
     public boolean update(BHHoaDonDM a, String ma) {
         String sql = "UPDATE HoaDon\n"
-                + "SET          NgayThanhToan =?, ThanhTien =?, TienDua =?, TienThua =?, HinhThucThanhToan = ?, SoTienGiamGia =?, TrangThai = 1\n"
+                + "SET          NgayThanhToan =?, TongTien =?, ThanhTien =?, TienDua =?, TienThua =?, HinhThucThanhToan = ?, SoTienGiamGia =?, TrangThai = 1\n"
                 + "WHERE MaHD= ?";
         int check = 0;
         try {
             Connection connection = DBConnection.getConnection();
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setObject(1, a.getNgayThanhToan());
-            ps.setObject(2, a.getThanhTien());
-            ps.setObject(3, a.getTienDua());
-            ps.setObject(4, a.getTienThua());
-            ps.setObject(5, a.getHinhThucThanhToan());
-            ps.setObject(6, a.getSoTienGiam());
-            ps.setObject(7, ma);
+            ps.setObject(2, a.getTongTien());
+            ps.setObject(3, a.getThanhTien());
+            ps.setObject(4, a.getTienDua());
+            ps.setObject(5, a.getTienThua());
+            ps.setObject(6, a.getHinhThucThanhToan());
+            ps.setObject(7, a.getSoTienGiam());
+            ps.setObject(8, ma);
             check = ps.executeUpdate();
             ps.close();
             connection.close();
@@ -204,19 +205,39 @@ public class BHHoaDonRepon implements BHHoaDonIRepon {
     @Override
     public boolean updateGiaoHang(BHHoaDonDM a, String ma) {
         String sql = "UPDATE HoaDon\n"
-                + "SET          ThanhTien =?, TienDua =?, TienThua =?, HinhThucThanhToan =?, SoTienGiamGia =?, NgayGiao =?, TrangThai = 4\n"
+                + "SET          TongTien =?, TienShip =?, ThanhTien =?, SoTienGiamGia =?, NgayGiao =?, TrangThai = 4 \n"
                 + "WHERE MaHD = ?";
         int check = 0;
         try {
             Connection connection = DBConnection.getConnection();
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setObject(1, a.getThanhTien());
-            ps.setObject(2, a.getTienDua());
-            ps.setObject(3, a.getTienThua());
-            ps.setObject(4, a.getHinhThucThanhToan());
-            ps.setObject(5, a.getSoTienGiam());
-            ps.setObject(6, a.getNgayGiao());
-            ps.setObject(7, ma);
+            ps.setObject(1, a.getTongTien());
+            ps.setObject(2, a.getTienShip());
+            ps.setObject(3, a.getThanhTien());
+            ps.setObject(4, a.getSoTienGiam());
+            ps.setObject(5, a.getNgayGiao());
+            ps.setObject(6, ma);
+            check = ps.executeUpdate();
+            ps.close();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return check > 0;
+    }
+
+    @Override
+    public boolean updateGiaoHangThanhCong(BHHoaDonDM a, String ma) {
+        String sql = "UPDATE HoaDon\n"
+                + "SET          NgayGiaoThanhCong =?, TrangThai = 5 \n"
+                + "WHERE MaHD = ?";
+        int check = 0;
+        try {
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setObject(1, a.getNgayGiaoThanhCong());
+            ps.setObject(2, ma);
             check = ps.executeUpdate();
             ps.close();
             connection.close();

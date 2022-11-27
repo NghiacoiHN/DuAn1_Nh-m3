@@ -12,6 +12,7 @@ import java.math.BigDecimal;
  */
 public class BHGioHangVM {
 
+    String IDHDCT;
     String maHD;
     String tenSP;
     String tenLoaiSP;
@@ -24,6 +25,14 @@ public class BHGioHangVM {
 
     public String getTenSX() {
         return tenSX;
+    }
+
+    public String getIDHDCT() {
+        return IDHDCT;
+    }
+
+    public void setIDHDCT(String IDHDCT) {
+        this.IDHDCT = IDHDCT;
     }
 
     public void setTenSX(String tenSX) {

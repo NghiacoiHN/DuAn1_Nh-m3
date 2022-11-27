@@ -29,4 +29,6 @@ public interface BHHoaDonISevice {
     boolean addGiaoHang(BHHoaDonDM a);
 
     boolean updateGiaoHang(BHHoaDonDM a, String ma);
+    
+    boolean updateGiaoHangThanhCong(BHHoaDonDM a, String ma);
 }

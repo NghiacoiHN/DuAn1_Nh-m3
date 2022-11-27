@@ -10,6 +10,12 @@ import ViewModels.BHSanPhamVM;
 import java.util.List;
 import Reponsitories.BHSanPhamIRepon;
 import Sevices.BHSanPhamISevice;
+import Utilities.DBConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -51,7 +57,16 @@ public class BHSanPhamSevice implements BHSanPhamISevice {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
-        }    }
+        }
+    }
 
-
+    @Override
+    public List<BHSanPhamVM> findCTSPByCam(String ma) {
+        try {
+            return spRepon.findCTSPByCam(ma);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

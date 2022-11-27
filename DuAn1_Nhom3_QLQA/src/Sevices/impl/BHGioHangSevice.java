@@ -49,4 +49,14 @@ public class BHGioHangSevice implements BHGioHangISevice {
         }
     }
 
+    @Override
+    public boolean delete(String ma) {
+        try {
+            return ghRepon.delete(ma);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

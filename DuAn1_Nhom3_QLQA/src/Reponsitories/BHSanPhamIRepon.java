@@ -23,4 +23,6 @@ public interface BHSanPhamIRepon {
     boolean delete(String ma);
 
     boolean updateSL(BHSanPhamDM a, String ma);
+    
+    List<BHSanPhamVM> findCTSPByCam(String ma);
 }

@@ -37,7 +37,7 @@ public class test extends javax.swing.JFrame implements Runnable, ThreadFactory{
      * Creates new form test
      */
     private WebcamPanel panel = null;
-    private Webcam webcam = null;
+    private Webcam webcam = Webcam.getDefault();
     private Executor executor = Executors.newSingleThreadExecutor(this);
 
     public test() {
@@ -47,8 +47,8 @@ public class test extends javax.swing.JFrame implements Runnable, ThreadFactory{
 
     //WEBCAM
     private void initWebcam() {
-        Dimension size = WebcamResolution.QVGA.getSize();
-        webcam = Webcam.getWebcams().get(0);
+        Dimension size = WebcamResolution.VGA.getSize();
+        webcam = Webcam.getWebcams().get(1);
         webcam.setViewSize(size);
 
         panel = new WebcamPanel(webcam);

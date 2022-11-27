@@ -19,7 +19,8 @@ public interface BHGioHangIRepon {
     List<BHGioHangVM> getOne(String ma);
 
     boolean add(BHGioHangDM a);
-//    boolean delete(String ma);
+    
+    boolean delete(String ma);
 //
 //    boolean update(BHSanPhamDM a, String ID);
 

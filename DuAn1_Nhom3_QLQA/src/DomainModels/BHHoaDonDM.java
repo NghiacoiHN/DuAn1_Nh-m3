@@ -19,10 +19,12 @@ public class BHHoaDonDM {
     String MaHD;
     String ngayTao;
     String ngayThanhToan;
+    BigDecimal tongTien;
     BigDecimal soTienGiam;
     BigDecimal thanhTien;
     BigDecimal tienDua;
     BigDecimal tienThua;
+    BigDecimal tienShip;
     String hinhThucThanhToan;
     String tenKH;
     String SDTKH;
@@ -33,7 +35,22 @@ public class BHHoaDonDM {
     String ngayGiao;
     String ngayGiaoThanhCong;
     Integer trangThai;
-    
+
+    public BigDecimal getTongTien() {
+        return tongTien;
+    }
+
+    public void setTongTien(BigDecimal tongTien) {
+        this.tongTien = tongTien;
+    }
+
+    public BigDecimal getTienShip() {
+        return tienShip;
+    }
+
+    public void setTienShip(BigDecimal tienShip) {
+        this.tienShip = tienShip;
+    }
 
     public String getNgayMuonNhan() {
         return ngayMuonNhan;
